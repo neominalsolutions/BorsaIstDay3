@@ -10,39 +10,49 @@ import { HomePageComponent } from './client-ui/pages/home-page/home-page.compone
 // route config dosyası
 const routes: Routes = [
   // ayrı bir module linki
+  // {
+  //   path: '',
+  //   component: ClientLayoutComponent,
+  //   children: [
+  //     // nested route
+  //     {
+  //       path: '',
+  //       component: HomePageComponent,
+  //     },
+  //     {
+  //       path: 'home',
+  //       component: HomePageComponent,
+  //     },
+  //     {
+  //       path: 'about',
+  //       component: AboutPageComponent,
+  //     },
+  //   ],
+  // },
+  // ayrı bir module layout linki
+  // {
+  //   path: 'admin',
+  //   component: AdminLayoutComponent,
+  //   children: [
+  //     {
+  //       path: 'users',
+  //       component: UsersPageComponent,
+  //     },
+  //     {
+  //       path: 'roles',
+  //       component: RolesPageComponent,
+  //     },
+  //   ],
+  // },
   {
     path: '',
-    component: ClientLayoutComponent,
-    children: [
-      // nested route
-      {
-        path: '',
-        component: HomePageComponent,
-      },
-      {
-        path: 'home',
-        component: HomePageComponent,
-      },
-      {
-        path: 'about',
-        component: AboutPageComponent,
-      },
-    ],
+    loadChildren: () =>
+      import('./client-ui/client-ui.module').then((m) => m.ClientUIModule),
   },
-  // ayrı bir module layout linki
   {
     path: 'admin',
-    component: AdminLayoutComponent,
-    children: [
-      {
-        path: 'users',
-        component: UsersPageComponent,
-      },
-      {
-        path: 'roles',
-        component: RolesPageComponent,
-      },
-    ],
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
   },
   // {
   //   path: 'home',
