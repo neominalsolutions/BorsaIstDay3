@@ -1,0 +1,10 @@
+
+
+<mat-list *ngFor="let user of users" >
+  <mat-list-item  >{{user.name}}
+
+    <button (click)="onSelect(user)" mat-button color="primary">detay</button>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+</mat-list>

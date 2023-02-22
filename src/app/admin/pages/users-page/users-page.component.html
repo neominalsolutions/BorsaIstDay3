@@ -1,1 +1,30 @@
-<p>users-page works!</p>
+<hr>
+<app-user-list [users]="users" (userSelected)="onUserSelect($event)" ></app-user-list>
+<hr>
+<app-user-card [userInfo]="selectedUser"></app-user-card>
+
+
+<button (click)="onCloseDialog()">close dialog</button>
+
+<!-- page component feature componentlerden beslenmelidir. -->
+<!-- 
+<mat-card>
+  <mat-card-content>
+    <p>
+      username: <span>{{userInfo?.username}}</span>
+    </p>
+    <p>
+      email: <span>{{userInfo?.email}}</span>
+    </p>
+  </mat-card-content>
+</mat-card>
+
+
+<mat-list *ngFor="let user of users" >
+  <mat-list-item  >{{user.name}}
+
+    <button (click)="onSelect(user)" mat-button color="primary">detay</button>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+</mat-list> -->

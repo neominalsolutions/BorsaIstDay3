@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// angular material animasyon kütüphanesi için kullandık
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // bu şekilde appModule dosyasının şişmesini engelliyoruz. çünkü herşey root module olan app module üzerinden çalışıyor.
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

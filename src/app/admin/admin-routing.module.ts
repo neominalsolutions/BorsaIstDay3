@@ -15,6 +15,10 @@ const routes: Routes = [
         component: UsersPageComponent,
       },
       {
+        path: 'user-detail/:id', // route params değerlerini okuyarak route üzerinden bir componenten diğer componente nasıl veri taşırız kısmını
+        component: UsersPageComponent,
+      },
+      {
         path: 'roles',
         component: RolesPageComponent,
       },
