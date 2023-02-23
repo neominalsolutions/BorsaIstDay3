@@ -47,12 +47,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./client-ui/client-ui.module').then((m) => m.ClientUIModule),
+      import('./client-ui/client-ui.module').then((m) => m.ClientPageModule),
   },
   {
     path: 'admin',
     loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+      import('./admin/admin.module').then((m) => m.AdminPageModule),
   },
   // {
   //   path: 'home',

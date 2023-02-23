@@ -5,37 +5,25 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { RolesPageComponent } from './pages/roles-page/roles-page.component';
-import { UserCardComponent } from './pages/users-page/features/user-card/user-card.component';
-// material ile alakalı kullanacağım modülleri eklemek için material apidan module isimlerini öğrenip geliştirme modülüne tanımlıyorum
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { UserListComponent } from './pages/users-page/features/user-list/user-list.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { UserInfoDialogComponent } from './pages/users-page/features/user-info-dialog/user-info-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-// no provider injector hatası alırsak module import edip etmemdiğimizi kontrol edelim
+import { AdminFeatureModule } from './pages/users-page/features/admin-feature.module';
 
-// sadece admin module bulunan directives,pipes,components, service buraya tanıtılıyor
+// Lazy Module içerisinde bu yöntemde sadece Page Componentleri bırakıyoruz.
 @NgModule({
   declarations: [
     AdminLayoutComponent,
     UsersPageComponent,
     RolesPageComponent,
-    UserCardComponent,
-    UserListComponent,
-    UserInfoDialogComponent,
+    // UserCardComponent,
+    // UserListComponent,
+    // UserInfoDialogComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatCardModule,
-    MatListModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatDialogModule,
+    AdminFeatureModule, // Admin ait Feature Componentleri AdminFeature Module üzerinden kullandık
+    // ClientUIModule, circular dependency oluşturur
   ],
-  entryComponents: [UserInfoDialogComponent],
   providers: [],
+  // exports: [UserListComponent], // ilgili module içindeki component dışarı çıkarılır
 })
-export class AdminModule {}
+export class AdminPageModule {}
