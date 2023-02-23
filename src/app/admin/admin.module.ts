@@ -6,6 +6,7 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { RolesPageComponent } from './pages/roles-page/roles-page.component';
 import { AdminFeatureModule } from './pages/users-page/features/admin-feature.module';
+import { SharedModule } from '../shared/shared.module';
 
 // Lazy Module içerisinde bu yöntemde sadece Page Componentleri bırakıyoruz.
 @NgModule({
@@ -22,6 +23,7 @@ import { AdminFeatureModule } from './pages/users-page/features/admin-feature.mo
     AdminRoutingModule,
     AdminFeatureModule, // Admin ait Feature Componentleri AdminFeature Module üzerinden kullandık
     // ClientUIModule, circular dependency oluşturur
+    SharedModule, // Artık uygulamanın beslendiği bir module mekanizması var.
   ],
   providers: [],
   // exports: [UserListComponent], // ilgili module içindeki component dışarı çıkarılır
