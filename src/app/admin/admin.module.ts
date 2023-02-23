@@ -8,7 +8,9 @@ import { RolesPageComponent } from './pages/roles-page/roles-page.component';
 import { AdminFeatureModule } from './pages/users-page/features/admin-feature.module';
 import { SharedModule } from '../shared/shared.module';
 import { UserDetailPageComponent } from './pages/user-detail-page/user-detail-page.component';
-
+import { TodoPageComponent } from './pages/todo-page/todo-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoResolver } from './pages/todo-page/todo.resolver';
 // Lazy Module içerisinde bu yöntemde sadece Page Componentleri bırakıyoruz.
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { UserDetailPageComponent } from './pages/user-detail-page/user-detail-pa
     UsersPageComponent,
     RolesPageComponent,
     UserDetailPageComponent,
+    TodoPageComponent,
     // UserCardComponent,
     // UserListComponent,
     // UserInfoDialogComponent,
@@ -26,8 +29,9 @@ import { UserDetailPageComponent } from './pages/user-detail-page/user-detail-pa
     AdminFeatureModule, // Admin ait Feature Componentleri AdminFeature Module üzerinden kullandık
     // ClientUIModule, circular dependency oluşturur
     SharedModule, // Artık uygulamanın beslendiği bir module mekanizması var.
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [TodoResolver], // resolver servisler kullanıldıkları modullere provider olarak tanıtılırlar.
   // exports: [UserListComponent], // ilgili module içindeki component dışarı çıkarılır
 })
 export class AdminPageModule {}

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { RolesPageComponent } from './pages/roles-page/roles-page.component';
+import { TodoPageComponent } from './pages/todo-page/todo-page.component';
+import { TodoResolver } from './pages/todo-page/todo.resolver';
 import { UserDetailPageComponent } from './pages/user-detail-page/user-detail-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 
@@ -31,6 +33,14 @@ const routes: Routes = [
       {
         path: 'roles',
         component: RolesPageComponent,
+      },
+      {
+        path: 'todos',
+        component: TodoPageComponent,
+        resolve: {
+          // route componentin kullanacağı resolver tanımlaması yapıyoruz
+          todoview: TodoResolver, // todoview providername ile resolver üzerinden veri çekmeye hazır hale getirdil.
+        },
       },
     ],
   },
