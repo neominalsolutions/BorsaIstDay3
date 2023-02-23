@@ -11,6 +11,8 @@ import { MenuComponent } from './layout/components/menu/menu.component';
 import { AdminPageModule } from '../admin/admin.module';
 import { TeamsComponent } from './pages/home-page/features/teams/teams.component';
 import { AdminFeatureModule } from '../admin/pages/users-page/features/admin-feature.module';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { UnauthorizedPageComponent } from './pages/unauthorized-page/unauthorized-page.component';
 
 // module ile alakalı componentleri module encapsulate ettik.
 // aşağıdaki componentler artık app module de yüklenemeyecek.
@@ -23,6 +25,8 @@ import { AdminFeatureModule } from '../admin/pages/users-page/features/admin-fea
     HeaderComponent,
     MenuComponent,
     TeamsComponent,
+    NotFoundComponent,
+    UnauthorizedPageComponent,
   ],
   imports: [CommonModule, ClientUiRoutingModule, AdminFeatureModule], // AdminModule circular dependency oluşturur
   // exports: [TeamsComponent],

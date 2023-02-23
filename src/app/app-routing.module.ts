@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLayoutComponent } from './admin/layout/admin-layout/admin-layout.component';
-import { RolesPageComponent } from './admin/pages/roles-page/roles-page.component';
-import { UsersPageComponent } from './admin/pages/users-page/users-page.component';
-import { ClientLayoutComponent } from './client-ui/layout/components/client-layout/client-layout.component';
-import { AboutPageComponent } from './client-ui/pages/about-page/about-page.component';
-import { HomePageComponent } from './client-ui/pages/home-page/home-page.component';
+import { NotFoundComponent } from './client-ui/pages/not-found/not-found.component';
+import { UnauthorizedPageComponent } from './client-ui/pages/unauthorized-page/unauthorized-page.component';
+import AuthenticatedGuard from './shared/guards/authenticated.guard';
+
+// Alt+Shift+O gereksiz referans temizler
 
 // route config dosyası
 const routes: Routes = [
@@ -53,6 +52,15 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminPageModule),
+    canActivate: [AuthenticatedGuard], // admin sayfalarına girebilmek için kimlik doğrulama lazım
+  },
+  {
+    path: 'unauthorized',
+    component: UnauthorizedPageComponent,
+  },
+  {
+    path: '**', // dosyanın en sonunda uygulamada olmayan linkler çağırıldığında tetiklenir
+    component: NotFoundComponent,
   },
   // {
   //   path: 'home',

@@ -7,6 +7,7 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { RolesPageComponent } from './pages/roles-page/roles-page.component';
 import { AdminFeatureModule } from './pages/users-page/features/admin-feature.module';
 import { SharedModule } from '../shared/shared.module';
+import { UserDetailPageComponent } from './pages/user-detail-page/user-detail-page.component';
 
 // Lazy Module içerisinde bu yöntemde sadece Page Componentleri bırakıyoruz.
 @NgModule({
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     AdminLayoutComponent,
     UsersPageComponent,
     RolesPageComponent,
+    UserDetailPageComponent,
     // UserCardComponent,
     // UserListComponent,
     // UserInfoDialogComponent,
